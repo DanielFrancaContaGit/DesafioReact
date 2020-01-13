@@ -11,13 +11,13 @@ class ListaDeProdutos extends React.Component{
                 {
                     foto: 'https://images8.kabum.com.br/produtos/fotos/98638/98638_1538485168_index_g.jpg',
                     texto: 'placa de video',
-                    tags: ['eletonico, ', 'computador'], 
+                    tags: ['eletronico', 'computador'], 
                     id: 1
                 },
                 {
                     foto: 'https://www.dentalodonthomaz.com.br/img/products/placa-de-vidro-incolor-6mm-preven_1_1200.jpg',
                     texto: 'placa de vidro',
-                    tags: ['vidro, ', 'placa'], 
+                    tags: ['vidro', 'placa'], 
                     id: 2
                 }
             ]
@@ -28,13 +28,13 @@ class ListaDeProdutos extends React.Component{
             i=> <Produto
             foto = {i.foto}
             texto = {i.texto}
-            tags = {i.tags}
+            tags = {i.tags.join(', ')}
             key = {i.id}
             />
         );
         return(
             <div>
-                <Filtro />
+                <Filtro lista={this.state.produtos}/>
                 <div>{lista}</div>
             </div>
         )
